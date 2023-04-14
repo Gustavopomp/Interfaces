@@ -9,6 +9,7 @@ import model.entities.CarRental;
 import model.entities.Vehicle;
 import model.services.BrazilTazServices;
 import model.services.RentalService;
+import model.services.TaxService;
 
 public class Program {
 
@@ -17,7 +18,7 @@ public class Program {
 	//	Locale.setDefault(Locale.US);
 		Scanner ler = new Scanner(System.in);
 		
-		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm");
+		DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
 		System.out.println("Entre com os dados do aluguel");
 		System.out.println("Modelo do carro");
@@ -28,9 +29,9 @@ public class Program {
 		LocalDateTime finish = LocalDateTime.parse(ler.nextLine(), fmt);
 		CarRental cr = new CarRental(start, finish, new Vehicle(carModel));
 
-		System.out.println("entre com o preço por hora");
+		System.out.println("entre com o preço por hora:");
 		double pricePerHour = ler.nextDouble();
-		System.out.println("entre com o preço por hora");
+		System.out.println("entre com o preço por dia:");
 		double pricePerDay = ler.nextDouble();
 
 		RentalService rs = new RentalService(pricePerHour, pricePerDay, new BrazilTazServices());
